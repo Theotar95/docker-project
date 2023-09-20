@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t theotar995/docker-project -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true theotar995/docker-project npm run test
